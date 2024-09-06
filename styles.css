@@ -1,0 +1,380 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height */
+    background-color: #f2f1ec;
+    scroll-behavior: smooth;
+    font-family: 'Roboto Slab', serif; /* Apply Roboto Slab to entire page */
+}
+
+h1, h2, p, ul, li, a, button, label, input, textarea, .project-item {
+    font-family: 'Roboto Slab', serif; /* Ensure font applies everywhere */
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+}
+
+main {
+    flex: 1; /* Allow main content to take up available space */
+    background-color: #f2f1ec;
+}
+
+/* Existing nav styles */
+
+/* Style for the logo link */
+.logo {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-right: auto; /* Pushes the logo to the left */
+    margin-left: 2rem;
+}
+
+.logo img {
+    height: 80px; /* Adjust as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
+nav {
+    background-color: #f2f1ec; /* Updated background color */
+    padding: 2rem 2rem; /* Increased padding to make the navbar taller */
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000; /* Keeps navbar above other content */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Add transition for smooth hide/show */
+    display: flex;
+    justify-content: flex-end; /* Align navbar items to the right initially */
+    width: calc(100% - 40px); /* Adjust width to add space from the right edge */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+    transform: translateY(0); /* Ensure navbar is visible initially */
+}
+
+nav.hidden {
+    transform: translateY(-100%); /* Hide the navbar by moving it up */
+}
+
+nav.sticky {
+    background-color: #f2f1ec; /* Yellow background when sticky */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow when sticky */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+
+nav ul li {
+    margin: 0 20px; /* Adjust margin for spacing */
+    opacity: 1; /* Ensure items are visible */
+    transition: opacity 0.3s;
+}
+
+nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem; /* Increase font size */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.intro {
+    padding-top: 4rem; /* Ensure there's space below the fixed navbar */
+}
+
+.intro header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #f2f1ec; /* Updated background color */
+}
+
+header h1 {
+    font-size: 4rem; /* Adjust the font size for the name */
+    margin: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem; /* Space below the name */
+}
+
+header hr.divider {
+    border: none; /* Remove default border */
+    border-top: 1px solid black; /* Thinner line */
+    margin: 1.5rem auto; /* Spacing around the line */
+    width: 30%; /* Smaller width */
+    max-width: 200px; /* Optional: set a maximum width */
+}
+
+header p {
+    font-size: 1.1rem; /* Smaller font size */
+    margin: 2rem auto 0; /* Increased space above the gray text */
+    color: #666; /* Slightly gray color for the description */
+    width: 50%; /* Limit the width to less than half of the page */
+    text-align: center; /* Center the text within its container */
+    line-height: 1.4; /* Increase line height for better readability */
+    max-width: 650px; /* Optional: set a maximum width to prevent it from becoming too wide */
+}
+
+#home {
+    background-color: #f2f1ec;
+    padding: 0; /* Remove padding around the grid */
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+    margin-top: 1rem; /* Space between the yellow rectangle and grid */
+    position: relative; /* Required for the pseudo-element positioning */
+}
+
+#home::before {
+    background-color: #f2f1ec;
+    content: "";
+    display: block;
+    height: 1rem; /* Height of the yellow rectangle */
+    width: 100%; /* Full width of the section */
+    position: absolute;
+    top: 0; /* Position at the top of the section */
+    left: 0; /* Align to the left edge */
+    z-index: -1; /* Place behind the content */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 images per row */
+    width: 100%; /* Ensure the grid takes up full width of its container */
+    max-width: 1200px; /* Optional: limit the maximum width of the grid */
+    gap: 1rem; /* Space between images */
+    margin-top: 0; /* Remove extra space between the yellow rectangle and grid */
+}
+
+.project-item {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 100%; /* Maintain square aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transform effect */
+    border: 1px solid #ccc; /* Add a subtle border */
+    border-radius: 10px; /* Round out the edges */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for depth */
+}
+.project-item:hover {
+    transform: scale(1.05); /* Optional: scale up the image slightly on hover */
+}
+
+.project-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the square */
+    transition: filter 0.3s ease, box-shadow 0.3s ease; /* Smooth blur effect and shadow transition */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Horizontal offset | Vertical offset | Blur radius | Shadow color */
+    border-radius: 10px; /* Rounds the edges of the image */
+}
+
+.project-item:hover img {
+    filter: blur(5px); /* Adjust the blur amount as needed */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+.description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    justify-content: center; /* Centers the content in the middle of the image */
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Smooth fade-in effect */
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+}
+
+
+.skills {
+    font-size: 1rem; /* Smaller font size for the additional text */
+    margin-top: 25px;
+}
+.project-item:hover .description {
+    opacity: 1;
+}
+
+
+form label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+form button {
+    padding: 0.5rem 1rem;
+    background: #333;
+    color: #f9f9ff;
+    border: none;
+    cursor: pointer;
+}
+
+/* New styles for buttons section */
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding: 0.5rem; /* Reduced padding to decrease height */
+    border: 2px solid #9ae6ea; /* Updated border color */
+    background-color: #9ae6ea; /* Updated filled background color */
+    border-radius: 5px; /* Optional: for rounded corners */
+    width: 70%; /* Adjust width to be smaller */
+    max-width: 1000px; /* Maximum width to ensure it doesn't get too wide */
+    margin-left: auto;
+    margin-right: auto; /* Center the section horizontally */
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.2); /* Pinkish shadow */
+}
+.category-button {
+    padding: 0.75rem 1.5rem; /* Reduced padding for buttons */
+    margin: 0 0.5rem; /* Reduced margin to fit buttons closer together */
+    background-color: transparent; /* Transparent background */
+    color: black; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem; /* Adjusted font size */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+/* Style for active button */
+.category-button.active {
+    color: #0382ad; /* Red color for active button text */
+}
+
+.category-button:hover {
+    color: #105a5c; /* Updated text color on hover */
+    box-shadow: none; /* Remove shadow effect */
+}
+
+/* New styles for contact section */
+#contact {
+    background-color: #d1fafb; /* Yellow background */
+    padding: 4rem 2rem;
+    width: 100vw;
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    margin-top: auto;
+    min-height: 400px;
+    display: flex; /* Flexbox to center content */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-content {
+    max-width: 1200px; /* Limit the width of content */
+    margin: 0 auto; /* Center the content horizontally */
+    text-align: center; /* Ensure text is centered */
+    margin-bottom: 1.5rem;
+}
+
+.contact-content h2 {
+    font-size: 1.5rem; /* Adjust the font size for the title */
+    color: black; /* Title color */
+}
+
+.social-icons {
+    margin-top: 1rem; /* Space between title and icons */
+    display: flex;
+    justify-content: center; /* Center icons horizontally */
+    gap: 2rem; /* Space between icons */
+}
+
+.icon-link {
+    display: inline-block;
+}
+
+.icon-link img {
+    width: 40px; /* Adjust size of the icons */
+    height: auto; /* Maintain aspect ratio */
+    transition: opacity 0.3s; /* Smooth transition on hover */
+}
+
+.icon-link:hover img {
+    opacity: 0.8; /* Slightly fade the icon on hover */
+}
+
+#about {
+    background-color: #f2f1ec; /* Background color for the section */
+    padding: 6rem 2rem; /* Padding for the section */
+}
+
+#about h2 {
+    font-size: 3rem; /* Adjust this value to make the title larger */
+    margin: 0;
+    color: #333; /* Adjust the color as needed */
+}
+
+.about-container {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    gap: 2rem; /* Space between image and text */
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center container horizontally */
+}
+
+.about-image img {
+    max-width: 75%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+    flex: 1; /* Allow text to take up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack title and bullet points vertically */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.about-header {
+    margin-bottom: 1.5rem; /* Space below title */
+}
+
+.about-header h2 {
+    font-size: 5rem; /* Title font size */
+    color: #333; /* Title color */
+}
+
+.about-list {
+    list-style-type: disc; /* Use disc bullets */
+    margin: 0; /* Remove default margin */
+    padding-left: 2rem; /* Add padding on the left to shift bullet points */
+}
+
+.about-list li {
+    margin-bottom: 0.5rem; /* Space between bullet points */
+    font-size: 1rem; /* Font size for bullet points */
+    color: #666; /* Bullet point color */
+}
+
+/* Style for the divider line */
+.divider {
+    border: none;
+    border-top: 1px solid #333; /* Color of the line */
+    margin: 1.5rem 0; /* Spacing above and below the line */
+    width: 50%; /* Width of the line */
+    max-width: 125px; /* Optional: set a maximum width */
+}
